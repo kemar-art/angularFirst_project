@@ -1,1 +1,6 @@
-<p>user works!</p>
+<div>
+    <button (click)="onSelectUser()">
+        <img [src]="imagePath()" [alt]="selectedUser().avatar">
+        <span>{{ selectedUser().name }}</span>
+    </button>
+</div>
