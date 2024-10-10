@@ -18,15 +18,22 @@ export class UserComponent {
   @Input({ required: true }) id!: string;
   @Input({ required: true }) avatar!: string;
   @Input({ required: true }) name!: string;
-  //@Output() select = new EventEmitter();
-  select = output<string>();
+
+  //Output decarator
+  @Output() select = new EventEmitter<string>();
+
+  @Output() task = new EventEmitter<string>();
+
+  //This is the same has the code above but it is a new way of writing the code
+  //Output Function
+  //select = output<string>();
   get imagePath() {
     return 'assets/users/' + this.avatar;
   }
 
   onSelectUser() {
     this.select.emit(this.id);
-
+    this.task.emit(this.name);
   }
 }
 
