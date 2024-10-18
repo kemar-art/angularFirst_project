@@ -10,7 +10,10 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 export class TaskComponent {
   //@Input({ required: true }) id!: string;
-  @Input({ required: true }) name!: string;
+  @Input() name?: string;
+
+  //This is another way of writing the code.
+  //@Input() name: string | undefined;
 
 
 }

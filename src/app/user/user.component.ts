@@ -15,25 +15,28 @@ import {
   styleUrl: './user.component.css',
 })
 export class UserComponent {
-  @Input({ required: true }) id!: string;
-  @Input({ required: true }) avatar!: string;
-  @Input({ required: true }) name!: string;
+  @Input({ required: true }) user!: {
+    id: string;
+    avatar: string;
+    name: string;
+  };
+  
 
   //Output decarator
   @Output() select = new EventEmitter<string>();
 
-  @Output() task = new EventEmitter<string>();
+  //@Output() task = new EventEmitter<string>();
 
   //This is the same has the code above but it is a new way of writing the code
   //Output Function
   //select = output<string>();
   get imagePath() {
-    return 'assets/users/' + this.avatar;
+    return 'assets/users/' + this.user.avatar;
   }
 
   onSelectUser() {
-    this.select.emit(this.id);
-    this.task.emit(this.name);
+    this.select.emit(this.user.id);
+    //this.task.emit(this.name);
   }
 }
 
